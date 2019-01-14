@@ -3,7 +3,7 @@ const client = new Discord.Client();
  
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-   client.user.setActivity("اكتب اي شي",{type: 'WATCHING'})
+  client.user.setGame(`1help`,"http://twitch.tv/twitch")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -37,7 +37,7 @@ const queue = new Map();
  
  
  
-var prefix = "البرفكس" 
+var prefix = "1" 
 client.on('message', async msg => {
     if (msg.author.bot) return undefined;
    
@@ -88,7 +88,7 @@ client.on('message', async msg => {
                     .setDescription(`**الرجآء من حضرتك إختيآر رقم المقطع** :
 ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
  
-                    .setFooter("By @! ๖ۣۜℜIP⇝ℳℜ_ℳⅅℳℛ👑#0590 ")
+                    .setFooter("By @! 𝕄𝕒𝕥𝕣𝕖𝕩.☂#9999 ")
                     msg.channel.sendEmbed(embed1).then(message =>{message.delete(20000)})
                    
                     // eslint-disable-next-line max-depth
@@ -229,13 +229,13 @@ function play(guild, song) {
     serverQueue.textChannel.send(`بدء تشغيل : **${song.title}**`);
 }
  
-const adminprefix = "$vip";
-const devs = ['274923685985386496'];
+const adminprefix = "$";
+const devs = ['484869429327560704'];
 client.on('message', message => {
   var argresult = message.content.split(` `).slice(1).join(' ');
     if (!devs.includes(message.author.id)) return;
    
-if (message.content.startsWith(adminprefix + 'setgdame')) {
+if (message.content.startsWith(adminprefix + 'setgame')) {
   client.user.setGame(argresult);
     message.channel.sendMessage(`**${argresult} تم تغيير بلاينق البوت إلى **`)
 } else
@@ -257,7 +257,7 @@ if (message.content.startsWith(adminprefix + 'setT')) {
 client.on("message", message => {
     if (message.content === `${prefix}help`) {
   const embed = new Discord.RichEmbed()
-      .setColor("#000000")
+      .setColor("RANDOM")
       .setDescription(`
 ${prefix}play ⇏ لتشغيل أغنية برآبط أو بأسم
 ${prefix}skip ⇏ لتجآوز الأغنية الحآلية
@@ -268,7 +268,7 @@ ${prefix}leave⇏ لإخرآج البوت من الروم
 ${prefix}np ⇏ لمعرفة الأغنية المشغلة حآليا
 ${prefix}queue ⇏ لمعرفة قآئمة التشغيل
  `)
-   message.channel.sendEmbed(embed)
+   message.author.sendEmbed(embed)
    
    }
    });
