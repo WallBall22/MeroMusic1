@@ -3,7 +3,21 @@ const client = new Discord.Client();
  
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setGame(`1help`,"http://twitch.tv/twitch")
+client.on('ready', function(){
+    var ms = 60000 ;
+    var setGame = ['1help','Mero Server 👍✌️','By Matrex The Owner'];
+    var i = -1;
+    var j = 0;
+    setInterval(function (){
+        if( i == -1 ){
+            j = 1;
+        }
+        if( i == (setGame.length)-1 ){
+            j = -1;
+        }
+        i = i+j;
+        client.user.setGame(setGame[i],`http://www.twitch.tv/1play`);
+    }, ms);
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
